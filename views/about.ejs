@@ -1,0 +1,16 @@
+<%- include('./partials/headers.ejs', { title }) %> 
+<%- include('./partials/menus.ejs') %>
+<% 
+    const name = "Andi Febianto";
+%> 
+<div class="container">
+    <div class="p-5 mb-4 bg-light rounded-3" bis_skin_checked="1">
+        <div class="container-fluid py-5" bis_skin_checked="1">
+          <h1 class="display-5 fw-bold">About Us</h1>
+          <p class="col-md-8 fs-4">
+            Hello my name is <%= name %>
+          </p>
+        </div>
+      </div>
+</div>
+<%- include('./partials/footer.ejs', {}) %>

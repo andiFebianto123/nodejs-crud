@@ -1,0 +1,35 @@
+<%- include('./partials/headers.ejs', { title }) %> 
+<%- include('./partials/menus.ejs') %>
+<% 
+          let action = 'create',
+          titlePage = 'Create Blog';
+
+      if(typeof data !== 'undefined'){
+        action = 'update',
+        titlePage = 'Update Blog';
+      }
+
+%> 
+<div class="container">
+    <h2><%= titlePage %></h2>
+    <div class="card mt-4">
+      <div class="card-body">
+        <form action="<%= action %> " method="post">
+            <div class="mb-3">
+              <label for="title-blog" class="form-label">Title Blog:</label>
+              <input type="text" class="form-control" name="title" id="title-blog" value="<%=(typeof data !== 'undefined') ? data.title : '' %>" />
+            </div>
+            <div class="mb-3">
+              <label for="snippet-blog" class="form-label">Blog Snippet:</label>
+              <input type="text" class="form-control" name="snippet" id="snippet-blog" value="<%=(typeof data !== 'undefined') ? data.snippet : '' %>" />
+            </div>
+            <div class="mb-3">
+              <label for="body-blog" class="form-label">Blog Body:</label>
+              <textarea class="form-control" id="body-blog" name="body" rows="4"><%=(typeof data !== 'undefined') ? data.body : '' %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs', {}) %>

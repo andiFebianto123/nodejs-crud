@@ -1,0 +1,29 @@
+<%- include('./partials/headers.ejs', { title }) %> 
+<%- include('./partials/menus.ejs') %>
+<div class="container">
+    <h2 class="mb-4">Blogs</h2>
+    <a href="/blog/create">
+        <button type="button" class="btn btn-primary btn-sm mb-2">+ Add blog</button>
+    </a>
+    <% 
+        const blogs = data;
+    %>
+        <% blogs.forEach(blog => { %>
+            <div class="card mb-4">
+                <h5 class="card-header">
+                    <%= blog.title %> 
+                    <div class="float-end">
+                        <a href="/blog/<%=blog.id%>/delete" style="color: red;"><i class="las la-trash"></i></a>
+                    </div>
+                    <div class="float-end">
+                        <a href="/blog/<%=blog.id%>/edit"><i class="las la-edit"></i></a> 
+                    </div>
+                </h5>
+                <div class="card-body">
+                  <h5 class="card-title"><%= blog.snippet %> </h5>
+                  <p class="card-text"><%= blog.body %>  </p>
+                </div>
+              </div>
+        <% }) %> 
+</div>
+<%- include('./partials/footer.ejs', {}) %>
